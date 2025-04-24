@@ -1,25 +1,21 @@
 from tkinter import *
 
-# def click(event):
-#     text=event.widget.cget('text')
-#     display.insert(END, text)
-
 def click(event):
     text = event.widget.cget('text')
     current = display.get()
     
     if text == "C":
-        display.delete(0, END)  # Clear the display when 'C' is clicked
+        display.delete(0, END)  
     elif text == "=":
         try:
-            result = str(eval(current))  # Evaluate the expression
+            result = str(eval(current))  
             display.delete(0, END)
             display.insert(END, result)
         except Exception as e:
             display.delete(0, END)
-            display.insert(END, "Error")  # In case of an invalid expression
+            display.insert(END, "Error")  
     else:
-        display.insert(END, text)  # Append the text of the clicked button
+        display.insert(END, text)  
 
 window=Tk()
 window.title("Calculator")
@@ -40,7 +36,7 @@ i=0
 for label in button_labels:
     button=Button(btn_frame, text=label, font=("Arial",18), padx=20, pady=20)
     button.grid(row=i//4, column=i%4, padx=10,pady=10)
-    button.bind("<Button-1>", click)  # Bind the click function to each button
+    button.bind("<Button-1>", click)  
     i+=1
 
 
