@@ -39,5 +39,4 @@ for label in button_labels:
     button.bind("<Button-1>", click)  
     i+=1
 
-
 window.mainloop()
